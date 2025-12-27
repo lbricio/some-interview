@@ -20,6 +20,11 @@ public:
     std::vector<Character> get_all_characters();
     std::vector<Character> get_characters_by_ids(const std::vector<int>& ids);
     
+    std::string get_episode_all();
+    std::string get_episode_single(int id);
+    std::string get_episode_batch(const std::string& id_part);
+    std::string get_episode_query(const std::string& full_target);
+    
 private:
     Character parse_character(const boost::json::object& obj);
     HttpClient& client_;

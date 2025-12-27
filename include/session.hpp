@@ -28,6 +28,12 @@ private:
     void location_batch(const std::string& id_part, const http::request<http::string_body>& req);
     void location_query(const http::request<http::string_body>& req);
 
+	void episode_all(const http::request<http::string_body>& req);
+    void episode_single(int id, const http::request<http::string_body>& req);
+    void episode_batch(const std::string& id_part, const http::request<http::string_body>& req);
+    void episode_query(const http::request<http::string_body>& req);
+	
+
     void route_request(const std::string& path, const http::request<http::string_body>& req);
     void send_response(http::status status, const std::string& body,
                        const http::request<http::string_body>& req);

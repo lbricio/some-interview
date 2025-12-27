@@ -102,6 +102,26 @@ Episode RickAndMortyApi::get_episode(int id) {
     return ep;
 }
 
+std::string RickAndMortyApi::get_episode_all() {
+    const std::string upstream = "/api/episode";
+    return client_.get("rickandmortyapi.com", upstream);
+}
+
+std::string RickAndMortyApi::get_episode_single(int id) {
+    const std::string upstream = "/api/episode/" + std::to_string(id);
+    return client_.get("rickandmortyapi.com", upstream);
+}
+
+std::string RickAndMortyApi::get_episode_batch(const std::string& id_part) {
+    const std::string upstream = "/api/episode/" + id_part;
+    return client_.get("rickandmortyapi.com", upstream);
+}
+
+std::string RickAndMortyApi::get_episode_query(const std::string& full_target) {
+    const std::string upstream = "/api/episode";
+    return client_.get("rickandmortyapi.com", upstream + full_target);
+}
+
 std::vector<std::pair<int, std::string>> RickAndMortyApi::get_all_characters_basic() {
     const std::string host = "rickandmortyapi.com";
     std::string target = "/api/character";
